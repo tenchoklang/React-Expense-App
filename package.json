@@ -12,8 +12,6 @@
     "test": "jest",
     "start": "node server/server.js",
     "heroku-postbuild": "npm run build:prod"
-
-
   },
   "author": "Tenzin Choklang",
   "license": "ISC",
