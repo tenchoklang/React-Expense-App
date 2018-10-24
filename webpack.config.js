@@ -9,6 +9,15 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+/*
+this is a environment which stores the enviroment which you are currently in. This get automatically set for
+us in heroku, heroku sets this value equal to 'production'.
+*/
+
+
+//what we are going to do is figure out how we can set this in our test environment. It will
+//either be in 'production', 'test' or undefined (development)
+
 module.exports = (env) =>{
 
     const isProduction = env === "production";
