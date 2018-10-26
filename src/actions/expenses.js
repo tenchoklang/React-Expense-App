@@ -55,6 +55,7 @@ export const startAddExpenses = (expenses = {}) => {
 
         const expense = {description, note, amount, createdAt};
         database.ref('expenses').push(expense).then((snapshot)=>{
+            //async dispatch in the promise
             dispatch(addExpense({
                 id: snapshot.key,
                 ...expense
@@ -75,7 +76,6 @@ export const startEditExpense = (id, updatedExpense) =>{
     return (dispatch)=>{
         const path = `expenses/${id}`;
         database.ref(path).update(updatedExpense).then(()=>{
-            console.log('UPDATING');
             dispatch(editExpense(id, updatedExpense));
         })
     }
