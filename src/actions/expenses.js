@@ -2,9 +2,9 @@ import uuid from 'uuid';
 import database from '../firebase/firebase'
 
 export const startRemoveExpense = (id) =>{
-    return (dispatch)=>{
-        const path = `expenses/${id}`
-        database.ref(path).remove().then(()=>{
+    return (dispatch, getState)=>{
+        const userId = getState().auth.uid;
+        database.ref(`users/${userId}/expenses/${id}`).remove().then(()=>{
             dispatch(removeExpense(id));
         });
     }
@@ -44,7 +44,8 @@ export const startAddExpenses = (expenses = {}) => {
     //called by redux with 'dispatch' which we can use to dispatch action.
     //In the .then() of the promise we want to dispatch the action because by then we would have the, id of the 
     //expense that we just added. 
-    return (dispatch)=>{
+    return (dispatch, getState)=>{
+        const userId = getState().auth.uid;
         //set the defaults for action here
         const  {
             description='',
@@ -54,7 +55,7 @@ export const startAddExpenses = (expenses = {}) => {
         } = expenses;
 
         const expense = {description, note, amount, createdAt};
-        database.ref('expenses').push(expense).then((snapshot)=>{
+        database.ref(`users/${userId}/expenses`).push(expense).then((snapshot)=>{
             //async dispatch in the promise
             dispatch(addExpense({
                 id: snapshot.key,
@@ -72,10 +73,10 @@ export const editExpense = (id, updatedExpense)=>({
     updatedExpense
 });
 
-export const startEditExpense = (id, updatedExpense) =>{
-    return (dispatch)=>{
-        const path = `expenses/${id}`;
-        database.ref(path).update(updatedExpense).then(()=>{
+export const startEditExpense = (id, updatedExpense, userId) =>{
+    return (dispatch, getState)=>{
+        const userId = getState().auth.uid;
+        database.ref(`users/${userId}/expenses/${id}`).update(updatedExpense).then(()=>{
             dispatch(editExpense(id, updatedExpense));
         })
     }
@@ -89,12 +90,13 @@ export const setExpenses = (expenses) =>({
 });
 
 export const startSetExpenses = () => {
-    return (dispatch)=>{
+    return (dispatch, getState)=>{
+        const userId = getState().auth.uid;
         /*
         return to be able to promise chain in app.js normally we would be able to add a .then() at the end of another
         promise but since this function is being called form the outside we can return allowing us to promise chain
         */
-        return database.ref('expenses').once('value').then((snapshot)=>{
+        return database.ref(`users/${userId}/expenses`).once('value').then((snapshot)=>{
             let expenses = [];
 
             snapshot.forEach((childSnapshot)=>{

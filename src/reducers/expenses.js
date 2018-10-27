@@ -4,7 +4,8 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
 
     switch(action.type){
         case 'ADD_EXPENSE':
-            return [...state,action.expense];
+            //adding out expense to the states array
+            return [...state, action.expense];
         case 'REMOVE_EXPENSE':
             return state.filter((value)=>value.id !== action.id);
         case 'EDIT_EXPENSE':
