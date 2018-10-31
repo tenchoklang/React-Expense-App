@@ -1,0 +1,8 @@
+.form{
+    display: flex;
+    flex-direction: column;
+
+    > * {//selects all children of form
+        margin: $s-size 0;
+    }
+}

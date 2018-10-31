@@ -27,7 +27,7 @@ const jsx = (
     </Provider>
 );
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById("app"));
+ReactDOM.render(<img src='../public/images/loading3.gif'></img>, document.getElementById("app"));
 
 //if we are already in the app and we log in or log out, we dont want to re-render everything
 //that is why we us this variable isrenderd to check if we are currently rendering or not

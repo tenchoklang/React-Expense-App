@@ -1,0 +1,33 @@
+.page-header{
+    background-color: #ebebeb;
+    padding: $l-size 0;
+    margin-bottom: $m-size;
+}
+
+.page-header__title{
+    font-weight: 300;
+     span{
+         font-weight: 700;
+     }
+}
+
+.page-header__button{
+
+    margin-top: $s-size;
+    
+}
+
+.add-button{
+    background-color: $button-color1;
+    display: inline-block;//add this because inline blocks dont respect top or bottom margin/padding
+    padding: $s-size $s-size;
+    text-decoration: none;
+    line-height: 1;
+    border: none;
+    color: $text-color1;
+}
+
+.add-button--remove{
+    @extend .add-button;
+    background-color: $button-color2;
+}

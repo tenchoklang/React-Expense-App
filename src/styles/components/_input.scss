@@ -1,0 +1,22 @@
+.text-input{
+    height: 50px;
+    border: 1px solid #cacccd;
+    padding: $s-size;
+}
+
+.date-input{
+    @extend .text-input;
+}
+
+.textArea-input{
+    @extend .text-input;
+    height: 10rem;
+}
+
+.text-input--form{
+    @extend .text-input;
+    width: 100%;
+    max-width: 80rem;
+    margin: $m-size 0;
+}
+

@@ -1,0 +1,44 @@
+.login{
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: $primary-color;
+    margin: 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-money {
+    font-size: 15rem;
+    color: $secondary-color;
+
+}
+
+.login__title{
+    font-size: $xl-size;
+    color:$text-color1;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.login__button{
+    position:relative;
+    border: none;
+    padding: $s-size $l-size;
+    background-color: $accent-color;
+    border-radius: $s-size;
+    box-shadow: 0.5px 0.2rem darken($accent-color, 10%);
+}
+
+.login__button:hover{
+    box-shadow: none;
+    top: 0.5px;
+}
+
+.login_loader{
+    background-image: url('/public/images/loading3.gif');
+    width: 100px;
+    height:100px;
+}

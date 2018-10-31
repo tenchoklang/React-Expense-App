@@ -1,0 +1,17 @@
+.filters-group{
+    display: flex;
+    margin-bottom: $l-size;
+
+    @media (max-width: 730px) {
+            flex-direction: column;
+            margin-bottom: $m-size;
+    }
+}
+
+.filters-group__item{
+    margin-right: $s-size;
+    @media (max-width: 730px) {
+        margin-bottom: $s-size;
+}
+}
+

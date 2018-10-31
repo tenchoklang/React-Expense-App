@@ -1,0 +1,25 @@
+.header{
+    background-color: $secondary-color;
+}
+
+.header__title{
+    text-decoration: none;
+    color: white;
+    h1{
+        margin: 0;
+    }
+}
+
+.header__content{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding: $s-size 0;
+}
+
+.header__logout{
+    background-color: Transparent;
+    border: none;
+    color: $text-color1;
+}

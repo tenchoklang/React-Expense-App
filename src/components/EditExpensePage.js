@@ -8,7 +8,7 @@ const Edit = (props) => {
     console.log(props);
     // const id = props.match.params.id;
     return ( 
-        <div>
+        <div className="content-container">
             <ExpenseForm 
                 expense={props.expense}
                 onSubmit={(expense)=>{
@@ -16,7 +16,8 @@ const Edit = (props) => {
                     props.history.push('/');
                 console.log('Updataed', expense);
             }}/>
-            <button onClick={() => {
+            <button className="add-button--remove"
+            onClick={() => {
                 props.dispatch(startRemoveExpense(props.expense.id));
                 props.history.push('/');
             }}>Remove</button>
