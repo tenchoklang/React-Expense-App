@@ -3,3 +3,8 @@
     margin: 0 auto;
     padding: 0 $s-size;
 }
+
+.content-container--list{
+    @extend .content-container;
+    padding-left: 0 0 0 $s-size;
+}

@@ -9,6 +9,7 @@ import getFilteredExpenses from './selectors/expenses'
 import 'normalize.css/normalize.css'
 import './styles/styles.scss';
 import { firebase } from './firebase/firebase';
+import LoadingPage from './components/LoadingPage';
 
 const store = configureStore();
 
@@ -27,7 +28,7 @@ const jsx = (
     </Provider>
 );
 
-ReactDOM.render(<img src='../public/images/loading3.gif'></img>, document.getElementById("app"));
+ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 
 //if we are already in the app and we log in or log out, we dont want to re-render everything
 //that is why we us this variable isrenderd to check if we are currently rendering or not
@@ -42,6 +43,7 @@ const render = ()=>{
 
 //onAuthStateChanged takes a callback and runs that callback when the authstate is changed
 //and in the callback we are provided the user if they are logged in
+
 firebase.auth().onAuthStateChanged((user)=>{
     console.log(user);
     if(user){
@@ -66,6 +68,12 @@ firebase.auth().onAuthStateChanged((user)=>{
         history.push('/');
     }
 });
+
+
+
+
+
+
 
 
 

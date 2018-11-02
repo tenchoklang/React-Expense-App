@@ -8,19 +8,30 @@ import numeral from 'numeral';
 
 //this is the props object that we are destructing
 const ExpenseListItem = ({dispatch, id, description, amount, createdAt}) => (
-    <div>
-        <Link to={`/edit/${id}`}>  
-            <h3>{description}</h3>
-        </Link>
-        <p>
-            {numeral(amount/100).format('$0,0.00')} 
-            - 
-            {moment(createdAt).format('MMMM Do, YYYY')}</p>
-        <button onClick={() => {
-            console.log(id);
-            console.log({id});
-            dispatch(startRemoveExpense(id));
-        }}>Remove</button>
+    <div className="content-container list-item">
+        <div className="list-item__content">
+            <div>
+                <Link to={`/edit/${id}`} className="list-item__description">  
+                <h3 >
+                    {description} - 
+                    <span className="list-item__content--amount">
+                    {numeral(amount/100).format('$0,0.00')}
+                    </span>
+                </h3>
+                </Link>
+                <p>{moment(createdAt).format('MMMM Do, YYYY')}</p>
+            </div>
+                
+            <div className="list-item__remove">
+                    <button  onClick={() => {
+                        console.log(id);
+                        console.log({id});
+                        dispatch(startRemoveExpense(id));
+                        }}>
+                        <i className="fa fa-trash" aria-hidden="true"></i>
+                    </button>      
+            </div>
+        </div>
     </div>
 );
 

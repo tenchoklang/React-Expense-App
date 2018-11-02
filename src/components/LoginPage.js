@@ -7,8 +7,6 @@ const LoginPage = ({startLogin})=>(
         <i className="fa fa-money" aria-hidden="true"></i>
         <p className="login__title">Expenses App</p>
         <button className="login__button"onClick={startLogin}>Login</button>
-        <div className="login__loader"></div>
-        <img src="/public/images/loading3.gif"></img>
     </div>
 );
 

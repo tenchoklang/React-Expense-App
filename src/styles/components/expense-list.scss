@@ -1,0 +1,64 @@
+.expense-list{
+    margin-bottom: $l-size;
+}
+
+.expense-list__title{
+    border: 1px solid $text-color1;
+    padding: 0 $s-size;
+}
+
+
+.list-item:nth-child(even) div{
+    background-color: #f7f7f7;
+}
+
+
+.list-item__content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: sans-serif;
+    border: 1px solid $text-color1;
+    border-top: none;
+    padding-left: $s-size;
+
+}
+
+.list-item__content--amount{
+    color: black;
+    font-size: $m-size;
+}
+
+.list-item__description{
+    text-decoration: none;
+    text-transform: capitalize;
+    word-break: break-all;
+}
+
+.list-item__remove{
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+
+    button{
+        height:100%;
+        background-color: $button-color2;
+        text-decoration: none;
+        border: none;
+        color: $text-color1;
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+        transition: all .25s ease-in-out;
+    }
+}
+
+.list-item:hover button{
+    width: 100%;
+    padding: 0 $m-size;
+}
+
+.fa-trash{
+    font-size: $l-size;
+    color: $text-color1;
+}

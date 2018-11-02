@@ -1,5 +1,6 @@
 @import './base/settings';
 @import './base/base';
+@import url('https://fonts.googleapis.com/css?family=Raleway:200');
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 @import './components/login';
 @import './components/header';
@@ -8,4 +9,6 @@
 @import './components/expense-list-filter';
 @import './components/input';
 @import './components/form';
+@import './components/expense-list.scss';
+@import './components/loading'
 
